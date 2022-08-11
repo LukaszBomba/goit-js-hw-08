@@ -1,15 +1,11 @@
-// Add imports above this line
-import { galleryItems } from './gallery-items';
-// Change code below this line
-
-console.log(galleryItems);
-
-// Opisany w dokumentacji
 import SimpleLightbox from 'simplelightbox';
-// Dodatkowy import stylów
+
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
 import { galleryItems } from './gallery-items.js';
+
+// Add imports above this line
+import { galleryItems } from './gallery-items';
 // Change code below this line
 
 const gallery = document.querySelector('.gallery');
@@ -30,3 +26,5 @@ const galleryItem = galleryItems
 gallery.innerHTML = galleryItem;
 
 new SimpleLightbox('.gallery a', { captionDelay: 250 });
+
+console.log(galleryItems);
