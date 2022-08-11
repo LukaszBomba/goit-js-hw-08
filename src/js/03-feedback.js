@@ -17,6 +17,7 @@ form.addEventListener(
 
 form.addEventListener('submit', e => {
   e.preventDefault();
+
   const {
     elements: { email, message },
   } = e.currentTarget;
@@ -25,15 +26,14 @@ form.addEventListener('submit', e => {
   e.currentTarget.reset();
   localStorage.clear();
 });
-
 const storage = localStorage.getItem('feedback-form-state');
 
-const parseStorageData = JSON.parse(storage);
+const StorageData = JSON.parse(storage);
 
 const tryFoo = () => {
-  if (parseStorageData !== null) {
-    email.value = parseStorageData.email;
-    text.value = parseStorageData.message;
+  if (StorageData !== null) {
+    email.value = StorageData.email;
+    text.value = StorageData.message;
   }
 };
 
