@@ -1,6 +1,7 @@
 import { throttle } from 'lodash';
 
 const iframe = document.querySelector('iframe');
+
 const player = new Vimeo.Player(iframe);
 
 player.on(
@@ -10,21 +11,17 @@ player.on(
   }, 1000)
 );
 
-const savedTime = localStorage.getItem('videoplayer-current-time');
+const time = localStorage.getItem('videoplayer-current-time');
 
 player
-  .setCurrentTime(savedTime)
-  .then(function (seconds) {
-    // seconds = the actual time that the player seeked to
-  })
+  .setCurrentTime(time)
+  .then(function (seconds) {})
   .catch(function (error) {
     switch (error.name) {
       case 'RangeError':
-        // the time was less than 0 or greater than the video’s duration
         break;
 
       default:
-        // some other error occurred
         break;
     }
   });
